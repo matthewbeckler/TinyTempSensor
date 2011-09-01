@@ -1,0 +1,58 @@
+# EESchema Netlist Version 1.1 created  Thu 01 Sep 2011 02:48:08 PM EDT
+(
+ ( /4E5FC3CB CR2032_TH BT1 BATTERY
+  ( 1 /VCC )
+  ( 2 /GND )
+ )
+ ( /4E5FC57D LED_RGB_TH_CA_RCBG D1 RGB_LED
+  ( 1 /VCC )
+  ( 2 /MISO )
+  ( 3 /SCK )
+  ( 4 /PB4 )
+ )
+ ( /4E5FC3FD WNL_SIL_6 P1 ICSP
+  ( 1 /GND )
+  ( 2 /VCC )
+  ( 3 /MISO )
+  ( 4 /SCK )
+  ( 5 /RESET )
+  ( 6 /MOSI )
+ )
+ ( /4E5FD344 1pin80mil P2 CONN_1
+  ( 1 /GND )
+ )
+ ( /4E5FC514 C1 R1 THERM
+  ( 1 /VCC )
+  ( 2 /MOSI )
+ )
+ ( /4E5FC4E7 WNL_R3 R2 10K
+  ( 1 /MOSI )
+  ( 2 /GND )
+ )
+ ( /4E5FC3C3 DIP-8__300_ELL U1 ATTINY13DIP-SO
+  ( 1 /RESET )
+  ( 2 ? )
+  ( 3 /PB4 )
+  ( 4 /GND )
+  ( 5 /MOSI )
+  ( 6 /MISO )
+  ( 7 /SCK )
+  ( 8 /VCC )
+ )
+)
+*
+{ Allowed footprints by component:
+$component R1
+ R?
+ SM0603
+ SM0805
+ R?-*
+$endlist
+$component R2
+ R?
+ SM0603
+ SM0805
+ R?-*
+$endlist
+$endfootprintlist
+}
