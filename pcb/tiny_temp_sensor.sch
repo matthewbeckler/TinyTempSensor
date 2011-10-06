@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date Wed 05 Oct 2011 08:19:37 PM EDT
+EESchema Schematic File Version 2  date Thu 06 Oct 2011 03:29:59 PM EDT
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -30,6 +30,7 @@ LIBS:atmel
 LIBS:contrib
 LIBS:valves
 LIBS:wayne_and_layne_kicad_symbols
+LIBS:tiny_temp_sensor-cache
 EELAYER 25  0
 EELAYER END
 $Descr A4 11700 8267
@@ -242,7 +243,7 @@ L ATTINY13DIP-SO U1
 U 1 1 4E5FC3C3
 P 3350 1950
 F 0 "U1" H 3350 1250 60  0000 C CNN
-F 1 "ATTINY13DIP-SO" H 3350 2700 60  0000 C CNN
+F 1 "ATTINY13A" H 3350 2700 60  0000 C CNN
 	1    3350 1950
 	1    0    0    -1  
 $EndComp

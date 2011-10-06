@@ -1,43 +1,43 @@
-# EESchema Netlist Version 1.1 created  Thu 01 Sep 2011 02:48:08 PM EDT
+# EESchema Netlist Version 1.1 created  Thu 06 Oct 2011 03:30:01 PM EDT
 (
- ( /4E5FC3CB CR2032_TH BT1 BATTERY
-  ( 1 /VCC )
-  ( 2 /GND )
+ ( /4E5FD344 $noname  P2 CONN_1 {Lib=CONN_1}
+  (    1 /GND )
  )
- ( /4E5FC57D LED_RGB_TH_CA_RCBG D1 RGB_LED
-  ( 1 /VCC )
-  ( 2 /MISO )
-  ( 3 /SCK )
-  ( 4 /PB4 )
+ ( /4E5FC57D $noname  D1 RGB_LED {Lib=RGB_LED}
+  (    1 /VCC )
+  (    2 /MISO )
+  (    3 /SCK )
+  (    4 /PB4 )
  )
- ( /4E5FC3FD WNL_SIL_6 P1 ICSP
-  ( 1 /GND )
-  ( 2 /VCC )
-  ( 3 /MISO )
-  ( 4 /SCK )
-  ( 5 /RESET )
-  ( 6 /MOSI )
+ ( /4E5FC514 $noname  R1 THERM {Lib=R}
+  (    1 /VCC )
+  (    2 /THERM )
  )
- ( /4E5FD344 1pin80mil P2 CONN_1
-  ( 1 /GND )
+ ( /4E5FC4E7 $noname  R2 10K {Lib=R}
+  (    1 /THERM )
+  (    2 /GND )
  )
- ( /4E5FC514 C1 R1 THERM
-  ( 1 /VCC )
-  ( 2 /MOSI )
+ ( /4E5FC3FD $noname  P1 ICSP {Lib=CONN_6}
+  (    1 /GND )
+  (    2 /VCC )
+  (    3 /MISO )
+  (    4 /SCK )
+  (    5 /RESET )
+  (    6 /MOSI )
  )
- ( /4E5FC4E7 WNL_R3 R2 10K
-  ( 1 /MOSI )
-  ( 2 /GND )
+ ( /4E5FC3CB $noname  BT1 BATTERY {Lib=BATTERY}
+  (    1 /VCC )
+  (    2 /GND )
  )
- ( /4E5FC3C3 DIP-8__300_ELL U1 ATTINY13DIP-SO
-  ( 1 /RESET )
-  ( 2 ? )
-  ( 3 /PB4 )
-  ( 4 /GND )
-  ( 5 /MOSI )
-  ( 6 /MISO )
-  ( 7 /SCK )
-  ( 8 /VCC )
+ ( /4E5FC3C3 $noname  U1 ATTINY13A {Lib=ATTINY13DIP-SO}
+  (    1 /RESET )
+  (    2 /THERM )
+  (    3 /PB4 )
+  (    4 /GND )
+  (    5 /MOSI )
+  (    6 /MISO )
+  (    7 /SCK )
+  (    8 /VCC )
  )
 )
 *
@@ -56,3 +56,39 @@ $component R2
 $endlist
 $endfootprintlist
 }
+{ Pin List by Nets
+Net 1 "/GND" "GND"
+ BT1 2
+ P2 1
+ P1 1
+ R2 2
+ U1 4
+Net 4 "/MOSI" "MOSI"
+ P1 6
+ U1 5
+Net 5 "/RESET" "RESET"
+ U1 1
+ P1 5
+Net 6 "/SCK" "SCK"
+ U1 7
+ D1 3
+ P1 4
+Net 7 "/MISO" "MISO"
+ P1 3
+ U1 6
+ D1 2
+Net 8 "/VCC" "VCC"
+ R1 1
+ D1 1
+ BT1 1
+ U1 8
+ P1 2
+Net 9 "/THERM" "THERM"
+ U1 2
+ R1 2
+ R2 1
+Net 10 "/PB4" "PB4"
+ U1 3
+ D1 4
+}
+#End
