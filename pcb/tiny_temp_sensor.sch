@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date Thu 01 Sep 2011 03:52:11 PM EDT
+EESchema Schematic File Version 2  date Wed 05 Oct 2011 08:19:37 PM EDT
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -36,7 +36,7 @@ $Descr A4 11700 8267
 encoding utf-8
 Sheet 1 1
 Title ""
-Date "1 sep 2011"
+Date "6 oct 2011"
 Rev ""
 Comp ""
 Comment1 ""
@@ -44,11 +44,76 @@ Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
+Text Label 4650 2250 0    60   ~ 0
+THERM
+Wire Wire Line
+	3600 3750 3900 3750
+Wire Wire Line
+	6250 3800 6800 3800
+Wire Wire Line
+	6250 3650 6800 3650
+Wire Wire Line
+	6250 3500 6800 3500
+Wire Wire Line
+	4600 2450 5050 2450
+Wire Wire Line
+	4600 2250 5050 2250
+Wire Wire Line
+	4600 1850 5050 1850
+Wire Wire Line
+	4600 2050 5050 2050
+Wire Wire Line
+	4600 1650 5050 1650
+Wire Wire Line
+	4600 1450 5050 1450
+Wire Wire Line
+	3650 3050 3900 3050
+Wire Wire Line
+	3900 3050 3900 3150
+Connection ~ 3900 3750
+Wire Wire Line
+	6300 1850 6650 1850
+Wire Wire Line
+	6300 1750 6650 1750
+Wire Wire Line
+	6300 1950 6650 1950
+Wire Wire Line
+	6300 2050 6650 2050
+Wire Wire Line
+	6300 2250 6650 2250
+Wire Wire Line
+	6300 2150 6650 2150
+Wire Wire Line
+	2100 2250 2000 2250
+Wire Wire Line
+	2000 2250 2000 1950
+Wire Wire Line
+	2000 1950 1200 1950
+Wire Wire Line
+	1200 1950 1200 2050
+Wire Wire Line
+	2100 2450 2000 2450
+Wire Wire Line
+	2000 2450 2000 2750
+Wire Wire Line
+	2000 2750 1200 2750
+Wire Wire Line
+	1200 2750 1200 2650
+Wire Wire Line
+	3900 3650 3900 3850
+Wire Wire Line
+	3900 4350 3900 4450
+Wire Wire Line
+	3900 4450 3650 4450
+Wire Wire Line
+	5550 3650 5150 3650
+Wire Wire Line
+	6150 2650 5900 2650
 Text Notes 3000 3700 0    60   ~ 0
 Thermistor\nConnection
 Text Notes 7200 1950 0    60   ~ 0
 ICSP\nprogramming\nheader
-Text Notes 5050 1450 0    60   ~ 0
+Text Notes 5050 2250 0    60   ~ 0
 THERMISTOR
 Text Notes 5050 2050 0    60   ~ 0
 GREEN
@@ -60,69 +125,6 @@ Text Notes 5850 2500 0    60   ~ 0
 Mounting hole
 Text Label 5900 2650 0    60   ~ 0
 GND
-Wire Wire Line
-	6150 2650 5900 2650
-Wire Wire Line
-	5550 3650 5150 3650
-Wire Wire Line
-	3650 4450 3900 4450
-Wire Wire Line
-	3900 4450 3900 4350
-Wire Wire Line
-	3900 3650 3900 3850
-Wire Wire Line
-	1200 2650 1200 2750
-Wire Wire Line
-	1200 2750 2000 2750
-Wire Wire Line
-	2000 2750 2000 2450
-Wire Wire Line
-	2000 2450 2100 2450
-Wire Wire Line
-	1200 2050 1200 1950
-Wire Wire Line
-	1200 1950 2000 1950
-Wire Wire Line
-	2000 1950 2000 2250
-Wire Wire Line
-	2000 2250 2100 2250
-Wire Wire Line
-	6300 2150 6650 2150
-Wire Wire Line
-	6300 2250 6650 2250
-Wire Wire Line
-	6300 2050 6650 2050
-Wire Wire Line
-	6300 1950 6650 1950
-Wire Wire Line
-	6300 1750 6650 1750
-Wire Wire Line
-	6300 1850 6650 1850
-Wire Wire Line
-	3900 3750 3650 3750
-Connection ~ 3900 3750
-Wire Wire Line
-	3900 3150 3900 3050
-Wire Wire Line
-	3900 3050 3650 3050
-Wire Wire Line
-	4600 1450 5050 1450
-Wire Wire Line
-	4600 1650 5050 1650
-Wire Wire Line
-	4600 2050 5050 2050
-Wire Wire Line
-	4600 1850 5050 1850
-Wire Wire Line
-	4600 2250 5050 2250
-Wire Wire Line
-	4600 2450 5050 2450
-Wire Wire Line
-	6250 3500 6800 3500
-Wire Wire Line
-	6250 3650 6800 3650
-Wire Wire Line
-	6250 3800 6800 3800
 $Comp
 L CONN_1 P2
 U 1 1 4E5FD344
@@ -132,8 +134,8 @@ F 1 "CONN_1" H 6300 2705 30  0001 C CNN
 	1    6300 2650
 	1    0    0    -1  
 $EndComp
-Text Label 3650 3750 0    60   ~ 0
-MOSI
+Text Label 3600 3750 0    60   ~ 0
+THERM
 Text Label 6400 3800 0    60   ~ 0
 PB4
 Text Label 4650 2050 0    60   ~ 0
