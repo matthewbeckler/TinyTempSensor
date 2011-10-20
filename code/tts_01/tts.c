@@ -5,6 +5,7 @@
 
 #include <inttypes.h>
 #include <avr/io.h>
+#include <avr/interrupt.h>
 
 //#define F_CPU 9600000
 #define F_CPU 10420000
@@ -57,14 +58,6 @@
 
 volatile unsigned char red, green, blue;
 
-#define RB_RED      1
-#define RB_GREEN    4
-#define RB_BLUE     2
-#define RB_ALL_OFF  0x16
-#define RB_ALL_ON   256 - RB_ALL_OFF
-
-/*
-
 const unsigned char map_reds[8]  = {0x00, 0x00, 0x00, 0x00, 0x00, 0x33, 0x99, 0xFF};
 const unsigned char map_green[8] = {0x00, 0x00, 0x66, 0x99, 0x99, 0x33, 0x00, 0x00};
 const unsigned char map_blue[8]  = {0xFF, 0x99, 0x33, 0x00, 0x00, 0x00, 0x00, 0x00};
@@ -78,22 +71,36 @@ ISR(ADC_vect) // whenever the analog sampling has finished
     red   = map_reds[index];
     green = map_green[index];
     blue  = map_blue[index];
+    //PORTB = ~PORTB;
 }
-*/
+
+ISR(TIM0_OVF_vect)
+{
+}
 
 int main(void)
 {
     unsigned char i;
 
+#define RB_RED      1
+#define RB_GREEN    4
+#define RB_BLUE     2
+// common + RGB led needs active low = on
+//                              high = off
+#define RB_ALL_OFF  0x16
+#define RB_ALL_ON   255 - RB_ALL_OFF
+
     // set clock prescaler: 0 gives full, unprescaled clock
-    CLKPR = _BV(CLKPCE);
-    CLKPR = 0;
+    //CLKPR = _BV(CLKPCE);
+    //CLKPR = 0;
 
     DDRB = 0xFF; // all outputs...yes, 1 = output, 0 = input, CWAA, Atmel!
     PORTB = RB_ALL_OFF; // turn high the pins for the led cathodes (common anode means high = off)
+    PORTB = 0x00;
 
     // set up the timer to overflow every once in a while
-    TCCR0B = _BV(CS02) | _BV(CS01); // clk_IO / 1024 prescaler
+    TCCR0B = _BV(CS02) | _BV(CS00); // clk_IO / 1024 prescaler
+    TIMSK0 = _BV(TOIE0);
 
     // set up the ADC for reading ADC3, auto triggered
     ADMUX = _BV(ADLAR) | _BV(MUX1) | _BV(MUX0);
@@ -101,7 +108,7 @@ int main(void)
     ADCSRB = _BV(ADTS2); // set the auto trigger source to Timer/Counter Overflow (100)
     DIDR0 = 0xFF; // "when a digital signal is not needed, this bit should be written logic one to reduce power consumption"
 
-    red = 250;
+    red = 0;
     blue = 0;
     green = 0;
 
@@ -109,14 +116,15 @@ int main(void)
 
     while (1)
     {
+        //PORTB = ~PORTB;
         // do PWM on the three channels
         // turn them all on at the start, turn them off when we reach each number
-        PORTB &= RB_ALL_ON;
+        PORTB = RB_ALL_ON;
         for (i = 255; i != 0; i--)
         {
-            if (i == red)   PORTB &= ~(_BV(RB_RED));
-            if (i == green) PORTB &= ~(_BV(RB_GREEN));
-            if (i == blue)  PORTB &= ~(_BV(RB_BLUE));
+            if (i == red)   PORTB |= _BV(RB_RED);
+            if (i == green) PORTB |= _BV(RB_GREEN);
+            if (i == blue)  PORTB |= _BV(RB_BLUE);
         }
     }
 }
