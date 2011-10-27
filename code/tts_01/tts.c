@@ -58,9 +58,9 @@
 
 volatile unsigned char red, green, blue;
 
-const unsigned char map_reds[8]  = {0x00, 0x00, 0x00, 0x00, 0x00, 0x33, 0x99, 0xFF};
+const unsigned char map_red[8]   = {0xFF, 0x99, 0x33, 0x00, 0x00, 0x00, 0x00, 0x00};
 const unsigned char map_green[8] = {0x00, 0x00, 0x66, 0x99, 0x99, 0x33, 0x00, 0x00};
-const unsigned char map_blue[8]  = {0xFF, 0x99, 0x33, 0x00, 0x00, 0x00, 0x00, 0x00};
+const unsigned char map_blue[8]  = {0x00, 0x00, 0x00, 0x00, 0x00, 0x33, 0x99, 0xFF};
 
 // Vector 10, program address 0x0009, called "ADC", when ADC conversion is complete
 ISR(ADC_vect) // whenever the analog sampling has finished
@@ -68,7 +68,7 @@ ISR(ADC_vect) // whenever the analog sampling has finished
     // use the value in ADCH (ignore the lower two bits in ADCL[7:6]) to update red, blue, green
     // maybe just use the upper three bits or something with a lookup table?
     unsigned char index = (ADCH >> 5);
-    red   = map_reds[index];
+    red   = map_red[index];
     green = map_green[index];
     blue  = map_blue[index];
     //PORTB = ~PORTB;
@@ -83,8 +83,8 @@ int main(void)
     unsigned char i;
 
 #define RB_RED      1
-#define RB_GREEN    4
-#define RB_BLUE     2
+#define RB_GREEN    2
+#define RB_BLUE     4
 // common + RGB led needs active low = on
 //                              high = off
 #define RB_ALL_OFF  0x16
@@ -94,9 +94,10 @@ int main(void)
     //CLKPR = _BV(CLKPCE);
     //CLKPR = 0;
 
-    DDRB = 0xFF; // all outputs...yes, 1 = output, 0 = input, CWAA, Atmel!
+    DDRB = 0xF7; // all outputs except RB3 which is the thermistor analog input...yes, 1 = output, 0 = input, CWAA, Atmel!
     PORTB = RB_ALL_OFF; // turn high the pins for the led cathodes (common anode means high = off)
     PORTB = 0x00;
+    MCUCR = _BV(PUD); // disable internal pullups
 
     // set up the timer to overflow every once in a while
     TCCR0B = _BV(CS02) | _BV(CS00); // clk_IO / 1024 prescaler
@@ -108,9 +109,9 @@ int main(void)
     ADCSRB = _BV(ADTS2); // set the auto trigger source to Timer/Counter Overflow (100)
     DIDR0 = 0xFF; // "when a digital signal is not needed, this bit should be written logic one to reduce power consumption"
 
-    red = 0;
-    blue = 0;
-    green = 0;
+    red = 1;
+    blue = 1;
+    green = 250;
 
     sei(); // TODO does this belong here
 
@@ -118,13 +119,12 @@ int main(void)
     {
         //PORTB = ~PORTB;
         // do PWM on the three channels
-        // turn them all on at the start, turn them off when we reach each number
-        PORTB = RB_ALL_ON;
+        PORTB = 0xFF;
         for (i = 255; i != 0; i--)
         {
-            if (i == red)   PORTB |= _BV(RB_RED);
-            if (i == green) PORTB |= _BV(RB_GREEN);
-            if (i == blue)  PORTB |= _BV(RB_BLUE);
+            if (i == red)   PORTB &= ~(_BV(RB_RED));
+            if (i == green) PORTB &= ~(_BV(RB_GREEN));
+            if (i == blue)  PORTB &= ~(_BV(RB_BLUE));
         }
     }
 }
