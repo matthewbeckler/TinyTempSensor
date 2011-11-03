@@ -1,0 +1,2 @@
+1. Fix the damn holes for the LED, they should be 32 mil if at all possible, way too small right now.
+2. Figure out what went wrong with the footprints for the cr2032 battery holder. I expect we just ordered the wrong part and used my old footprint.
