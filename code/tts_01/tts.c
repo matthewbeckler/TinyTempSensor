@@ -58,9 +58,10 @@
 
 volatile unsigned char red, green, blue;
 
-const unsigned char map_red[8]   = {0xFF, 0x99, 0x33, 0x00, 0x00, 0x00, 0x00, 0x00};
-const unsigned char map_green[8] = {0x00, 0x00, 0x66, 0x99, 0x99, 0x33, 0x00, 0x00};
-const unsigned char map_blue[8]  = {0x00, 0x00, 0x00, 0x00, 0x00, 0x33, 0x99, 0xFF};
+//                                  viol  indi  blue  grn   yel   ora   red   redder
+const unsigned char map_red[8]   = {0xEE, 0x4B, 0x00, 0x00, 0xFF, 0xFF, 0x77, 0xFF};
+const unsigned char map_green[8] = {0x82, 0x00, 0x00, 0xFF, 0xFF, 0x7F, 0x00, 0x00};
+const unsigned char map_blue[8]  = {0xEE, 0x82, 0xFF, 0x00, 0x00, 0x00, 0x00, 0x00};
 
 // Vector 10, program address 0x0009, called "ADC", when ADC conversion is complete
 ISR(ADC_vect) // whenever the analog sampling has finished
@@ -71,12 +72,9 @@ ISR(ADC_vect) // whenever the analog sampling has finished
     red   = map_red[index];
     green = map_green[index];
     blue  = map_blue[index];
-    //PORTB = ~PORTB;
 }
 
-ISR(TIM0_OVF_vect)
-{
-}
+//ISR(TIM0_OVF_vect){}
 
 int main(void)
 {
@@ -113,7 +111,7 @@ int main(void)
     blue = 1;
     green = 250;
 
-    sei(); // TODO does this belong here
+    sei();
 
     while (1)
     {
