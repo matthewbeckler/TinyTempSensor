@@ -59,9 +59,9 @@
 volatile unsigned char red, green, blue;
 
 //                                  viol  indi  blue  grn   yel   ora   red   redder
-const unsigned char map_red[8]   = {0xAE, 0x4B, 0x00, 0x00, 0xFF, 0x7F, 0x77, 0xFF};
-const unsigned char map_green[8] = {0x32, 0x00, 0x00, 0xFF, 0xFF, 0x1F, 0x00, 0x00};
-const unsigned char map_blue[8]  = {0xAE, 0x82, 0xFF, 0x00, 0x00, 0x00, 0x00, 0x00};
+const unsigned char map_red[8]   = {0x13, 0x4B, 0x00, 0x00, 0xFF, 0x7F, 0x77, 0xFF};
+const unsigned char map_green[8] = {0x00, 0x00, 0x00, 0xFF, 0xFF, 0x1F, 0x00, 0x00};
+const unsigned char map_blue[8]  = {0x13, 0x82, 0xFF, 0x00, 0x00, 0x00, 0x00, 0x00};
 
 // Vector 10, program address 0x0009, called "ADC", when ADC conversion is complete
 ISR(ADC_vect) // whenever the analog sampling has finished
@@ -74,14 +74,15 @@ ISR(ADC_vect) // whenever the analog sampling has finished
     // we're going to use a simple little lookup table thing here.
     // Centering it around room temp with eight colors ranging from 32F - 95F
     // TODO test this out, and also measure the room-temp resistance of the thermistor!
-#define ADC_VIOLET  60
-#define ADC_INDIGO  72
-#define ADC_BLUE    85
-#define ADC_GREEN   99
-#define ADC_YELLOW  113
-#define ADC_ORANGE  128
-#define ADC_RED     141
-#define ADC_REDDER  154
+#define DIFF 12
+#define ADC_VIOLET  80
+#define ADC_INDIGO  ADC_VIOLET + DIFF
+#define ADC_BLUE    ADC_INDIGO + DIFF
+#define ADC_GREEN   ADC_BLUE + DIFF
+#define ADC_YELLOW  ADC_GREEN + DIFF
+#define ADC_ORANGE  ADC_YELLOW + DIFF
+#define ADC_RED     ADC_ORANGE + DIFF
+#define ADC_REDDER  ADC_RED + DIFF
     unsigned char index;
     if (ADCH < ADC_VIOLET)
         index = 0;
