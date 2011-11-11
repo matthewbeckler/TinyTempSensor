@@ -1,4 +1,4 @@
-Cmp-Mod V01 Created by CvPcb (2011-oct-15)-testing date = Fri 11 Nov 2011 02:25:08 PM EST
+Cmp-Mod V01 Created by CvPcb (2011-oct-15)-testing date = Fri 11 Nov 2011 02:56:44 PM EST
 
 BeginCmp
 TimeStamp = /4E5FC3CB;
@@ -12,6 +12,13 @@ TimeStamp = /4E5FC57D;
 Reference = D1;
 ValeurCmp = RGB_LED_CA;
 IdModule  = WNL_LED_RGB_TH_CA_RCBG;
+EndCmp
+
+BeginCmp
+TimeStamp = /4EBD7D84;
+Reference = J1;
+ValeurCmp = 0;
+IdModule  = SIL-2;
 EndCmp
 
 BeginCmp

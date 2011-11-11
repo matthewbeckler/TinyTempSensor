@@ -1,47 +1,58 @@
-# EESchema Netlist Version 1.1 created  Fri 11 Nov 2011 02:25:08 PM EST
+# EESchema Netlist Version 1.1 created  Fri 11 Nov 2011 03:07:48 PM EST
 (
- ( /4E5FC3CB WNL_CR2032_TH_MPD_BS-7 BT1 BATTERY
-  ( 1 /VCC )
-  ( 2 /GND )
+ ( /4EBD7D84 $noname  J1 0 {Lib=R}
+  (    1 N-000009 )
+  (    2 /VCC )
  )
- ( /4E5FC57D WNL_LED_RGB_TH_CA_RCBG D1 RGB_LED_CA
-  ( B /BLUE )
-  ( C /VCC )
-  ( G /GREEN )
-  ( R /MISO )
+ ( /4E5FD344 $noname  P2 CONN_1 {Lib=CONN_1}
+  (    1 /GND )
  )
- ( /4E5FC3FD WNL_SIL_6 P1 ICSP
-  ( 1 /GND )
-  ( 2 /VCC )
-  ( 3 /MISO )
-  ( 4 /GREEN )
-  ( 5 /RESET )
-  ( 6 /MOSI )
+ ( /4E5FC57D $noname  D1 RGB_LED_CA {Lib=RGB_LED_CA}
+  (    B /BLUE )
+  (    C N-000009 )
+  (    G /GREEN )
+  (    R /PB3 )
  )
- ( /4E5FD344 1pin40mil P2 CONN_1
-  ( 1 /GND )
+ ( /4E5FC514 $noname  R1 THERM {Lib=R}
+  (    1 /VCC )
+  (    2 /THERM )
  )
- ( /4E5FC514 C1 R1 THERM
-  ( 1 /VCC )
-  ( 2 /THERM )
+ ( /4E5FC4E7 $noname  R2 10K {Lib=R}
+  (    1 /THERM )
+  (    2 /GND )
  )
- ( /4E5FC4E7 WNL_R3 R2 10K
-  ( 1 /THERM )
-  ( 2 /GND )
+ ( /4E5FC3FD $noname  P1 ICSP {Lib=CONN_6}
+  (    1 /GND )
+  (    2 /VCC )
+  (    3 /BLUE )
+  (    4 /GREEN )
+  (    5 /RESET )
+  (    6 /MOSI )
  )
- ( /4E5FC3C3 DIP-8__300_ELL U1 ATTINY13A
-  ( 1 /RESET )
-  ( 2 /THERM )
-  ( 3 /BLUE )
-  ( 4 /GND )
-  ( 5 /MOSI )
-  ( 6 /MISO )
-  ( 7 /GREEN )
-  ( 8 /VCC )
+ ( /4E5FC3CB $noname  BT1 BATTERY {Lib=BATTERY}
+  (    1 /VCC )
+  (    2 /GND )
+ )
+ ( /4E5FC3C3 $noname  U1 ATTINY13A {Lib=ATTINY13DIP-SO}
+  (    1 /RESET )
+  (    2 /PB3 )
+  (    3 /THERM )
+  (    4 /GND )
+  (    5 /MOSI )
+  (    6 /BLUE )
+  (    7 /GREEN )
+  (    8 /VCC )
  )
 )
 *
 { Allowed footprints by component:
+$component J1
+ R?
+ SM0603
+ SM0805
+ R?-*
+ SM1206
+$endlist
 $component R1
  R?
  SM0603
@@ -58,3 +69,42 @@ $component R2
 $endlist
 $endfootprintlist
 }
+{ Pin List by Nets
+Net 1 "/GND" "GND"
+ BT1 2
+ P1 1
+ U1 4
+ R2 2
+ P2 1
+Net 2 "/VCC" "VCC"
+ J1 2
+ P1 2
+ BT1 1
+ R1 1
+ U1 8
+Net 3 "/PB3" "PB3"
+ D1 R
+ U1 2
+Net 4 "/GREEN" "GREEN"
+ U1 7
+ D1 G
+ P1 4
+Net 5 "/BLUE" "BLUE"
+ D1 B
+ U1 6
+ P1 3
+Net 6 "/MOSI" "MOSI"
+ U1 5
+ P1 6
+Net 7 "/RESET" "RESET"
+ P1 5
+ U1 1
+Net 8 "/THERM" "THERM"
+ R1 2
+ R2 1
+ U1 3
+Net 9 "" ""
+ J1 1
+ D1 C
+}
+#End
