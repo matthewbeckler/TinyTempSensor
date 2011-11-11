@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date Thu 06 Oct 2011 03:29:59 PM EDT
+EESchema Schematic File Version 2  date Fri 11 Nov 2011 01:41:45 PM EST
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -30,14 +30,13 @@ LIBS:atmel
 LIBS:contrib
 LIBS:valves
 LIBS:wayne_and_layne_kicad_symbols
-LIBS:tiny_temp_sensor-cache
 EELAYER 25  0
 EELAYER END
 $Descr A4 11700 8267
 encoding utf-8
 Sheet 1 1
 Title ""
-Date "6 oct 2011"
+Date "11 nov 2011"
 Rev ""
 Comp ""
 Comment1 ""
@@ -45,8 +44,6 @@ Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
-Text Label 4650 2250 0    60   ~ 0
-THERM
 Wire Wire Line
 	3600 3750 3900 3750
 Wire Wire Line
@@ -109,50 +106,52 @@ Wire Wire Line
 Wire Wire Line
 	5550 3650 5150 3650
 Wire Wire Line
-	6150 2650 5900 2650
+	5750 2950 5500 2950
+Text Label 5000 1850 0    60   ~ 0
+GREEN
+Text Label 5000 2050 0    60   ~ 0
+BLUE
+Text Label 5000 1650 0    60   ~ 0
+RED
+Text Label 4650 2250 0    60   ~ 0
+THERM
 Text Notes 3000 3700 0    60   ~ 0
 Thermistor\nConnection
 Text Notes 7200 1950 0    60   ~ 0
 ICSP\nprogramming\nheader
 Text Notes 5050 2250 0    60   ~ 0
 THERMISTOR
-Text Notes 5050 2050 0    60   ~ 0
-GREEN
-Text Notes 5050 1850 0    60   ~ 0
-BLUE
-Text Notes 5050 1650 0    60   ~ 0
-RED
-Text Notes 5850 2500 0    60   ~ 0
+Text Notes 5450 2800 0    60   ~ 0
 Mounting hole
-Text Label 5900 2650 0    60   ~ 0
+Text Label 5500 2950 0    60   ~ 0
 GND
 $Comp
 L CONN_1 P2
 U 1 1 4E5FD344
-P 6300 2650
-F 0 "P2" H 6380 2650 40  0000 L CNN
-F 1 "CONN_1" H 6300 2705 30  0001 C CNN
-	1    6300 2650
+P 5900 2950
+F 0 "P2" H 5980 2950 40  0000 L CNN
+F 1 "CONN_1" H 5900 3005 30  0001 C CNN
+	1    5900 2950
 	1    0    0    -1  
 $EndComp
 Text Label 3600 3750 0    60   ~ 0
 THERM
 Text Label 6400 3800 0    60   ~ 0
-PB4
+BLUE
 Text Label 4650 2050 0    60   ~ 0
 PB4
 Text Label 6400 3650 0    60   ~ 0
-SCK
+GREEN
 Text Label 6400 3500 0    60   ~ 0
-MISO
+RED
 Text Label 5150 3650 0    60   ~ 0
 VCC
 $Comp
-L RGB_LED D1
+L RGB_LED_CA D1
 U 1 1 4E5FC57D
 P 5900 3650
 F 0 "D1" H 5900 3350 60  0000 C CNN
-F 1 "RGB_LED" H 5900 3950 60  0000 C CNN
+F 1 "RGB_LED_CA" H 5900 3950 60  0000 C CNN
 	1    5900 3650
 	1    0    0    -1  
 $EndComp
@@ -211,24 +210,6 @@ Text Label 1750 1950 0    60   ~ 0
 VCC
 Text Label 1750 2750 0    60   ~ 0
 GND
-$Comp
-L PWR_FLAG #FLG01
-U 1 1 4E5FC3DD
-P 1650 2750
-F 0 "#FLG01" H 1650 3020 30  0001 C CNN
-F 1 "PWR_FLAG" H 1650 2980 30  0000 C CNN
-	1    1650 2750
-	1    0    0    -1  
-$EndComp
-$Comp
-L PWR_FLAG #FLG02
-U 1 1 4E5FC3DC
-P 1650 1950
-F 0 "#FLG02" H 1650 2220 30  0001 C CNN
-F 1 "PWR_FLAG" H 1650 2180 30  0000 C CNN
-	1    1650 1950
-	1    0    0    -1  
-$EndComp
 $Comp
 L BATTERY BT1
 U 1 1 4E5FC3CB

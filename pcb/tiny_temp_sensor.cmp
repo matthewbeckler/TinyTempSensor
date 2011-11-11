@@ -1,17 +1,17 @@
-Cmp-Mod V01 Created by CvPCB (2011-06-30 BZR 3033)-testing date = Thu 01 Sep 2011 02:48:08 PM EDT
+Cmp-Mod V01 Created by CvPcb (2011-oct-15)-testing date = Fri 11 Nov 2011 02:25:08 PM EST
 
 BeginCmp
 TimeStamp = /4E5FC3CB;
 Reference = BT1;
 ValeurCmp = BATTERY;
-IdModule  = CR2032_TH;
+IdModule  = WNL_CR2032_TH_MPD_BS-7;
 EndCmp
 
 BeginCmp
 TimeStamp = /4E5FC57D;
 Reference = D1;
-ValeurCmp = RGB_LED;
-IdModule  = LED_RGB_TH_CA_RCBG;
+ValeurCmp = RGB_LED_CA;
+IdModule  = WNL_LED_RGB_TH_CA_RCBG;
 EndCmp
 
 BeginCmp
@@ -25,7 +25,7 @@ BeginCmp
 TimeStamp = /4E5FD344;
 Reference = P2;
 ValeurCmp = CONN_1;
-IdModule  = 1pin80mil;
+IdModule  = 1pin40mil;
 EndCmp
 
 BeginCmp
@@ -45,7 +45,7 @@ EndCmp
 BeginCmp
 TimeStamp = /4E5FC3C3;
 Reference = U1;
-ValeurCmp = ATTINY13DIP-SO;
+ValeurCmp = ATTINY13A;
 IdModule  = DIP-8__300_ELL;
 EndCmp
 
